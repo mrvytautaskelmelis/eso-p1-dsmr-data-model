@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ESO P1 smart meter data model vs DSMR 5.0.2 – OBIS codes, formats, telegrams</title>
+<meta name="description" content="Lithuanian grid operator ESO smart meter P1 port data model (OBIS codes, Standard / Extended / Maximum telegrams) compared with the DSMR 5.0.2 P1 Companion Standard: value formats, COSEM class IDs, tags and units.">
+<meta name="keywords" content="ESO, P1 port, DSMR 5.0.2, OBIS, smart meter, Lithuania, DLMS COSEM, išmanusis skaitiklis, P1 sąsaja">
+<link rel="canonical" href="https://mrvytautaskelmelis.github.io/eso-p1-dsmr-data-model/">
+<!-- GA4: tag goes here -->
+<style>
+body{font-family:system-ui,Segoe UI,Arial,sans-serif;max-width:860px;margin:2rem auto;padding:0 1rem;line-height:1.55;color:#1f2328}
+h1{font-size:1.6rem}h2{font-size:1.2rem;margin-top:2rem}code{background:#f3f4f6;padding:.1rem .3rem;border-radius:4px}
+table{border-collapse:collapse;width:100%}td,th{border:1px solid #d0d7de;padding:.4rem .6rem;text-align:left;vertical-align:top}
+a{color:#0969da}
+</style>
+</head>
+<body>
+<h1>ESO P1 smart meter data model vs DSMR 5.0.2</h1>
+<p>Data model of the <strong>P1 port</strong> on smart meters of the Lithuanian grid operator <strong>ESO</strong> (AB „Energijos skirstymo operatorius“), cleaned up and compared with the Dutch <strong>DSMR 5.0.2 P1 Companion Standard</strong>, which ESO declares it follows.</p>
+
+<h2>Downloads</h2>
+<table>
+<tr><th>File</th><th>Content</th></tr>
+<tr><td><a href="https://github.com/mrvytautaskelmelis/eso-p1-dsmr-data-model/raw/main/P1_duomenu_modelis_v32.xlsx">P1_duomenu_modelis_v32.xlsx</a></td><td>All ESO OBIS codes with telegram sets (Standard / Extended / Maximum), English and Lithuanian descriptions, units, example values with precision, value formats and DSMR 5.0.2 status; DSMR format codes, COSEM data types, Class ID / tag table; ESO example telegrams.</td></tr>
+<tr><td><a href="https://github.com/mrvytautaskelmelis/eso-p1-dsmr-data-model/raw/main/P1_ESO_vs_DSMR_coverage_v1.xlsx">P1_ESO_vs_DSMR_coverage_v1.xlsx</a></td><td>Which DSMR 5.0.2 objects ESO sends in which telegram set, with findings.</td></tr>
+</table>
+
+<h2>Key findings</h2>
+<ul>
+<li>ESO <strong>Standard</strong> set omits export (generation) data that DSMR always includes: <code>1-0:2.8.1</code>, <code>1-0:2.8.2</code>, <code>1-0:2.7.0</code>, <code>1-0:22/42/62.7.0</code>.</li>
+<li>ESO <strong>Maximum</strong> set omits total power <code>1-0:1.7.0</code> / <code>1-0:2.7.0</code>.</li>
+<li><code>1-0:52.36.0</code> is marked Standard in the ESO profile table but missing from the ESO Standard example telegram.</li>
+<li>Not sent by ESO: <code>1-3:0.2.8</code>, <code>0-0:96.14.0</code>, <code>0-0:96.7.9</code>, <code>1-0:99.97.0</code>.</li>
+<li>72 ESO objects are extensions outside DSMR 5.0.2 (reactive/apparent energy and power, power factor, averages, demand registers, sag/swell duration and magnitude, firmware).</li>
+</ul>
+
+<h2>Sources</h2>
+<ul>
+<li><a href="https://www.eso.lt/duk/p1-sasaja-196#ffaq694">ESO FAQ – P1 sąsaja</a></li>
+<li><a href="https://www.eso.lt/download/585550/p1%20duomenu%20modelis_v2.xlsx">ESO original file – p1 duomenu modelis_v2.xlsx</a></li>
+<li><a href="https://www.netbeheernederland.nl/publicatie/dsmr-502-p1-companion-standard">DSMR 5.0.2 P1 Companion Standard (Netbeheer Nederland, 2016)</a></li>
+</ul>
+<p><a href="https://github.com/mrvytautaskelmelis/eso-p1-dsmr-data-model">Repository on GitHub</a> · Vytautas Kelmelis</p>
+</body>
+</html>
